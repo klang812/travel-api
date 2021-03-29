@@ -24,7 +24,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
+    if @review.destroy!
+      render status: 200, json: { message: "This review has been successfully DESTROYED!!!"}
+    end
   end
 
 private
