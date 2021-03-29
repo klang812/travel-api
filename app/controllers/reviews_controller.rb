@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all
+    @reviews = Review.searchable(params.slice(:username, :title, :content, :location_city, :location_country, :rating))
     json_response(@reviews)
   end
 

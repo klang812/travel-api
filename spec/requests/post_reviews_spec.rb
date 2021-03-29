@@ -34,4 +34,8 @@ describe 'post a review route', :type => :request do
   it 'returns the rating' do
     expect(JSON.parse(response.body)['rating']).to eq(1)
   end
+
+  it 'returns a created status' do
+    expect(response).to have_http_status(:created)
+  end
 end

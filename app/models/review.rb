@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+  include Searchable
 
   validates :username, presence: true, uniqueness: true
   validates :title, presence: true
@@ -7,4 +8,11 @@ class Review < ApplicationRecord
   validates :location_country, presence: true
   validates_inclusion_of :rating, in: 1..5
 
+  scope :search_by_username, -> (username) { where username: username }
+  scope :search_by_title, -> (title) { where title: title }
+  scope :search_by_location_city, -> (location_city) { where location_city: location_city }
+  scope :search_by_location_country, -> (location_country) { where location_country: location_country }
+
 end
+
+
