@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   include Searchable
+  enum status: [:active, :inactive]
 
   validates :username, presence: true, uniqueness: true
   validates :title, presence: true
