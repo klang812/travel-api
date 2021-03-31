@@ -53,6 +53,7 @@ class ReviewsController < ApplicationController
   swagger_api :update do
     summary "To update a review"
     notes "Implementation notes, such as required params, example queries for apis are written here."
+    # param :path, :id, :integer, :required, "Review ID"
     param :form, :username, :string, :required, "Name of user"
     param :form, :title, :string, :required, "Title of Review"
     param :form, :content, :string, :required, "Review Content"
